@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <!-- 要先引入vue.js 否则报错 -->
+  <script src="https://cdn.bootcss.com/vue/2.5.2/vue.min.js"></script>
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+  <div id='app'>
+    <video class="videoDom" src="https://customed-center.oss-accelerate.aliyuncs.com/web/quoteManage/20230517/20230517ziAx6XRj.mp4" @click="play"></video>
+    <p @click="abc">555</p>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data () {
+        return {
+
+        }
+
+      },
+      watch: {
+      },
+      methods: {
+        play(){
+          let videoDom = document.querySelector('.videoDom')
+          if (videoDom.paused) {
+            videoDom.play()
+          } else {
+            videoDom.pause()
+          }
+        },
+        abc (e) {
+          console.log(e);
+          let videoDom = document.querySelector('.videoDom')
+          videoDom.requestFullscreen()
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
+<style>
+  .videoDom{
+    width: 500px;
+    height: 500px;
+  }
+</style>

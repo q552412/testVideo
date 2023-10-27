@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- 要先引入vue.js 否则报错 -->
+    <script src="https://cdn.bootcss.com/vue/2.5.2/vue.min.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+    <div id='app'>
+        <!-- <el-checkbox-group v-model="checkList"  @change="(e)=>{console.log(e)}"> -->
+        <el-checkbox-group v-model="checkList"  @change="e=> abc(e)">
+          <el-checkbox label="复选框 A" ></el-checkbox>
+          <el-checkbox label="复选框 B"></el-checkbox>
+          <el-checkbox label="复选框 C"></el-checkbox>
+          <el-checkbox label="禁用" disabled></el-checkbox>
+          <el-checkbox label="选中且禁用" disabled></el-checkbox>
+        </el-checkbox-group>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data(){
+              return{
+                checkList: ['选中且禁用', '复选框 A']
+              }
+              
+            }  ,
+            watch: {
+            },
+            methods: {
+              abc(e){
+                console.log(e);
+              }
+            }
+        })
+    </script>
+</body>
+
+</html>
+<style>
+</style>
